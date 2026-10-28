@@ -17,7 +17,11 @@
     .brand { color:var(--ink); font-size:20px; font-weight:800; letter-spacing:-.045em; text-decoration:none; }
     .brand span { color:var(--teal); }
     nav { display:flex; gap:24px; }
+    nav { flex-wrap:wrap; justify-content:flex-end; }
     nav a { color:var(--muted); font-size:14px; text-decoration:none; }
+    .language-links { white-space:nowrap; }
+    .language-links a { margin-left:7px; }
+    .language-links a[aria-current="page"] { color:var(--teal); font-weight:750; }
     nav a:hover, footer a:hover { color:var(--ink); }
     .hero { display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:54px; padding:84px 0 96px; }
     .eyebrow { color:var(--teal); font-size:13px; font-weight:750; letter-spacing:.15em; }
@@ -60,11 +64,11 @@
     @media(max-width:440px) { .wrap { width:calc(100% - 30px); } header { align-items:flex-start; } nav { gap:13px; } nav a { font-size:12px; } .label-tools { left:0; } .label-apps { right:0; } .label-games { left:6px; } footer { flex-direction:column; } footer a { margin:0 14px 0 0; } }
   </style>
 </head>
-<body>
+<body data-language-home data-site-base="./">
   <div class="wrap">
     <header>
       <a class="brand" href="./">모아<span>미디어</span></a>
-      <nav aria-label="주 메뉴"><a href="#about">회사 소개</a><a href="#products">만드는 것</a><a href="#contact">문의</a></nav>
+      <nav aria-label="주 메뉴"><a href="#about">회사 소개</a><a href="#products">만드는 것</a><a href="#contact">문의</a><span class="language-links" aria-label="언어 선택"><a data-locale="ko" href="./" lang="ko" aria-current="page">KO</a><a data-locale="en" href="en/" lang="en">EN</a><a data-locale="ja" href="ja/" lang="ja">日本語</a><a data-locale="es" href="es/" lang="es">ES</a></span></nav>
     </header>
     <main>
       <section class="hero" style="border:0;padding-top:38px">
@@ -102,5 +106,6 @@
     </main>
     <footer><span>© 모아미디어</span><span><a href="privacy/">개인정보처리방침</a><a href="clearclip/">ClearClip</a></span></footer>
   </div>
+  <script src="assets/language.js" defer></script>
 </body>
 </html>

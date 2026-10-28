@@ -17,6 +17,8 @@
     .brand { display:flex; align-items:center; gap:12px; font-weight:750; font-size:20px; letter-spacing:-.03em; text-decoration:none; }
     .brand img { width:38px; height:38px; border-radius:12px; }
     nav a { color:var(--muted); font-size:14px; text-decoration:none; margin-left:22px; }
+    .language-links { white-space:nowrap; }
+    .language-links a[aria-current="page"] { color:var(--teal); font-weight:750; }
     nav a:hover { color:var(--ink); }
     .hero { display:grid; grid-template-columns:1.08fr .92fr; align-items:center; gap:56px; padding:72px 0 88px; }
     .eyebrow { color:var(--teal); font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
@@ -51,11 +53,11 @@
     @media(max-width:420px) { .wrap { width:calc(100% - 28px); } header { align-items:flex-start; } nav a { margin:0 0 0 10px; font-size:13px; } }
   </style>
 </head>
-<body>
+<body data-language-home data-site-base="./">
   <div class="wrap">
     <header>
       <a class="brand" href="../"><img src="../assets/clearclip-icon.png" alt="">ClearClip</a>
-      <nav aria-label="주 메뉴"><a href="#features">주요 기능</a><a href="../privacy/">개인정보처리방침</a></nav>
+      <nav aria-label="주 메뉴"><a href="#features">주요 기능</a><a href="../privacy/">개인정보처리방침</a><span class="language-links" aria-label="언어 선택"><a data-locale="ko" href="./" lang="ko" aria-current="page">KO</a><a data-locale="en" href="en/" lang="en">EN</a><a data-locale="ja" href="ja/" lang="ja">日本語</a><a data-locale="es" href="es/" lang="es">ES</a></span></nav>
     </header>
     <main>
       <section class="hero" style="border:0;padding-top:44px">
@@ -87,5 +89,6 @@
     </main>
     <footer><a href="../">MOAMEDIA</a><a href="../privacy/">개인정보처리방침</a><a href="mailto:wiseappl@gmail.com">앱 문의</a><span>ClearClip · Android</span></footer>
   </div>
+  <script src="../assets/language.js" defer></script>
 </body>
 </html>
