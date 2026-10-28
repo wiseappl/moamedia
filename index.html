@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MOAMEDIA는 앱을 개발하고 디지털 서비스를 제공합니다.">
+  <meta name="theme-color" content="#10131d">
+  <title>MOAMEDIA | 앱 개발과 디지털 서비스</title>
+  <style>
+    :root { color-scheme:dark; --bg:#10131d; --panel:#191e2b; --ink:#f5f6fb; --muted:#a7aec0; --line:#2c3445; --accent:#8d7cff; --teal:#5dd6d0; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:radial-gradient(ellipse at 76% 4%,#29234c 0,transparent 34rem),var(--bg); color:var(--ink); font:16px/1.65 system-ui,-apple-system,"Noto Sans KR",sans-serif; }
+    a { color:inherit; }
+    .wrap { width:min(1120px,calc(100% - 40px)); margin:auto; }
+    header { display:flex; justify-content:space-between; align-items:center; padding:24px 0; }
+    .brand { color:var(--ink); font-size:20px; font-weight:800; letter-spacing:-.045em; text-decoration:none; }
+    .brand span { color:var(--teal); }
+    nav { display:flex; gap:24px; }
+    nav a { color:var(--muted); font-size:14px; text-decoration:none; }
+    nav a:hover, footer a:hover { color:var(--ink); }
+    .hero { display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:54px; padding:84px 0 96px; }
+    .eyebrow { color:var(--teal); font-size:13px; font-weight:750; letter-spacing:.15em; }
+    h1 { max-width:690px; margin:15px 0 20px; font-size:clamp(42px,6vw,70px); line-height:1.12; letter-spacing:-.06em; }
+    .hero p { max-width:570px; margin:0; color:var(--muted); font-size:18px; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:0 18px; border:1px solid var(--line); border-radius:13px; color:var(--ink); font-weight:700; text-decoration:none; }
+    .button.primary { border-color:transparent; background:linear-gradient(110deg,#806cff,#4b7bff); }
+    .orbit { position:relative; display:grid; place-items:center; min-height:360px; }
+    .orbit:before,.orbit:after { position:absolute; content:""; border:1px solid #48436b; border-radius:50%; }
+    .orbit:before { width:330px; height:330px; }
+    .orbit:after { width:250px; height:250px; border-color:#314956; }
+    .orbit-core { z-index:1; display:grid; place-items:center; width:156px; height:156px; border:1px solid #6259a1; border-radius:44px; background:linear-gradient(145deg,#282847,#171d2a); box-shadow:0 24px 90px #6758ff2c; color:var(--teal); font-size:52px; font-weight:850; letter-spacing:-.1em; }
+    .orbit-label { position:absolute; z-index:2; padding:9px 13px; border:1px solid var(--line); border-radius:12px; background:#171b27; color:#d9dbea; font-size:13px; box-shadow:0 10px 25px #06070b88; }
+    .label-tools { top:45px; left:10px; } .label-apps { top:105px; right:0; } .label-games { bottom:48px; left:25px; }
+    section { padding:58px 0; border-top:1px solid var(--line); }
+    h2 { margin:0 0 10px; font-size:clamp(27px,4vw,38px); letter-spacing:-.045em; }
+    .section-intro { margin:0 0 28px; color:var(--muted); }
+    .pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; }
+    .pillar { min-height:190px; padding:24px; border:1px solid var(--line); border-radius:18px; background:#191e2bbd; }
+    .pillar .num { color:var(--teal); font-size:12px; font-weight:800; letter-spacing:.14em; }
+    .pillar h3 { margin:18px 0 7px; font-size:19px; }
+    .pillar p { margin:0; color:var(--muted); font-size:14px; }
+    .products { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .product { display:flex; flex-direction:column; min-height:330px; overflow:hidden; border:1px solid var(--line); border-radius:20px; background:var(--panel); }
+    .product-copy { padding:26px; }
+    .product-tag { color:var(--teal); font-size:12px; font-weight:750; letter-spacing:.12em; }
+    .product h3 { margin:9px 0 8px; font-size:25px; letter-spacing:-.04em; }
+    .product p { margin:0; color:var(--muted); }
+    .product img { display:block; width:100%; height:215px; margin-top:auto; object-fit:cover; object-position:top; }
+    .product.placeholder { justify-content:space-between; background:linear-gradient(140deg,#1c2030,#171a25); }
+    .game-art { display:grid; place-items:center; min-height:160px; margin:0 26px 26px; border:1px dashed #485065; border-radius:16px; color:#8c94a8; font-size:14px; }
+    .company-note { display:grid; grid-template-columns:.8fr 1.2fr; gap:28px; align-items:start; padding:26px; border:1px solid var(--line); border-radius:20px; background:#191e2bbd; }
+    .company-note p { margin:0; color:var(--muted); }
+    .contact { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:22px 24px; border:1px solid var(--line); border-radius:18px; background:var(--panel); }
+    .contact p { margin:3px 0 0; color:var(--muted); font-size:14px; }
+    footer { display:flex; justify-content:space-between; gap:18px; padding:30px 0 48px; color:var(--muted); font-size:13px; }
+    footer a { margin-left:18px; text-decoration:none; }
+    @media(max-width:760px) { .hero { grid-template-columns:1fr; gap:22px; padding:54px 0 68px; } .orbit { min-height:290px; } .orbit:before { width:270px; height:270px; } .orbit:after { width:205px; height:205px; } .orbit-core { width:128px; height:128px; border-radius:36px; } .pillars,.products { grid-template-columns:1fr; } .pillar { min-height:0; } .company-note { grid-template-columns:1fr; gap:12px; } .contact { align-items:flex-start; flex-direction:column; } }
+    @media(max-width:440px) { .wrap { width:calc(100% - 30px); } header { align-items:flex-start; } nav { gap:13px; } nav a { font-size:12px; } .label-tools { left:0; } .label-apps { right:0; } .label-games { left:6px; } footer { flex-direction:column; } footer a { margin:0 14px 0 0; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="./">모아<span>미디어</span></a>
+      <nav aria-label="주 메뉴"><a href="#about">회사 소개</a><a href="#products">만드는 것</a><a href="#contact">문의</a></nav>
+    </header>
+    <main>
+      <section class="hero" style="border:0;padding-top:38px">
+        <div>
+          <div class="eyebrow">MOA MEDIA · DIGITAL PRODUCTS</div>
+          <h1>앱을 개발하고<br>디지털 서비스를 만듭니다.</h1>
+          <p>MOAMEDIA는 모바일 앱을 개발하고 운영하는 디지털 서비스 회사입니다. ClearClip을 비롯한 유용한 서비스를 선보입니다.</p>
+          <div class="hero-actions"><a class="button primary" href="clearclip/">ClearClip 알아보기</a><a class="button" href="#about">모아미디어 소개</a></div>
+        </div>
+        <div class="orbit" aria-hidden="true"><span class="orbit-label label-tools">디지털 서비스</span><span class="orbit-label label-apps">모바일 앱</span><span class="orbit-label label-games">앱 개발</span><div class="orbit-core">MOA</div></div>
+      </section>
+      <section id="about">
+        <h2>MOAMEDIA가 하는 일</h2>
+        <p class="section-intro">앱 개발과 디지털 서비스 운영을 통해 일상에서 쓰이는 도구를 제공합니다.</p>
+        <div class="pillars">
+          <article class="pillar"><div class="num">01 / TOOLS</div><h3>생활 속 디지털 도구</h3><p>반복되는 작업을 더 간단하게 해주는 모바일 도구를 만듭니다.</p></article>
+          <article class="pillar"><div class="num">02 / MOBILE</div><h3>사용하기 쉬운 앱</h3><p>핵심 기능을 이해하기 쉽고, 손쉽게 쓸 수 있는 앱 경험을 설계합니다.</p></article>
+            <article class="pillar"><div class="num">03 / SERVICES</div><h3>디지털 서비스</h3><p>이용자의 필요에 맞춘 서비스를 개발하고 운영합니다.</p></article>
+        </div>
+      </section>
+      <section id="products">
+        <h2>프로젝트</h2>
+        <p class="section-intro">현재 소개하는 프로젝트와 앞으로 선보일 콘텐츠입니다.</p>
+        <div class="products">
+          <article class="product">
+            <div class="product-copy"><div class="product-tag">ANDROID APP · VIDEO TOOL</div><h3>ClearClip</h3><p>영상에서 자막이나 로고 영역을 직접 지정해 블러 처리하거나 주변 프레임으로 채우는 Android 앱입니다. 원본은 보존하고 결과를 새 파일로 저장합니다.</p></div>
+            <img src="assets/clearclip-home.png" alt="ClearClip 앱 화면 미리보기">
+            <div class="product-copy" style="padding-top:0"><a class="button primary" href="clearclip/">앱 소개와 주요 기능 <span aria-hidden="true">&nbsp;→</span></a></div>
+          </article>
+        </div>
+      </section>
+      <section id="contact">
+          <div class="contact"><div><strong>MOAMEDIA에 문의하기</strong><p>회사 및 ClearClip 앱 관련 문의는 이메일로 보내 주세요.</p></div><a class="button" href="mailto:wiseappl@gmail.com">wiseappl@gmail.com</a></div>
+      </section>
+    </main>
+    <footer><span>© 모아미디어</span><span><a href="privacy/">개인정보처리방침</a><a href="clearclip/">ClearClip</a></span></footer>
+  </div>
+</body>
+</html>
